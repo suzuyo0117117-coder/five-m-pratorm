@@ -1041,5 +1041,20 @@ document.addEventListener('change',ev=>{const el=ev.target.closest('[data-change
 document.addEventListener('input',ev=>{const el=ev.target.closest('[data-input]');if(el&&C[el.dataset.input])C[el.dataset.input](el,ev);});
 document.addEventListener('submit',ev=>{const f=ev.target.closest('form[data-form]');if(!f)return;ev.preventDefault();const fn=F[f.dataset.form];if(fn)fn(f,ev);});
 window.addEventListener('hashchange',onRoute);
+window.addEventListener('hashchange',onRoute);
 initState();onRoute();
-</script></body></html>
+</script>
+
+<!-- Supabase SDK の読み込み -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // Supabase 接続設定
+  const SUPABASE_URL = 'https://xhfjejvvscfonakkzzuj.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_widzJcGEmVH7GfN2pW1m7Q_ci3bEYyu'; // ←実際のキーを入れる
+
+  // 変数名のかぶりを防ぐため supabaseClient に統一
+  const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+</script>
+
+</body>
+</html>
