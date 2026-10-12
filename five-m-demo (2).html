@@ -1042,4 +1042,15 @@ document.addEventListener('input',ev=>{const el=ev.target.closest('[data-input]'
 document.addEventListener('submit',ev=>{const f=ev.target.closest('form[data-form]');if(!f)return;ev.preventDefault();const fn=F[f.dataset.form];if(fn)fn(f,ev);});
 window.addEventListener('hashchange',onRoute);
 initState();onRoute();
-</script></body></html>
+</script><!-- Supabase SDKの読み込み -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  // Supabaseの接続設定
+  const SUPABASE_URL = 'https://xhfjejvvscfonakkzzuj.supabase.co';
+  const SUPABASE_ANON_KEY = 'ここにPublishable_keyを貼り付ける';
+
+  // Supabaseクライアントの初期化
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+</script>
+</body></html>
